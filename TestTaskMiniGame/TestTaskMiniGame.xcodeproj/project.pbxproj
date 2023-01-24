@@ -9,19 +9,29 @@
 /* Begin PBXBuildFile section */
 		0A100DCE2980274E00FC9E94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A100DCD2980274E00FC9E94 /* AppDelegate.swift */; };
 		0A100DD02980274E00FC9E94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A100DCF2980274E00FC9E94 /* SceneDelegate.swift */; };
-		0A100DD22980274E00FC9E94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A100DD12980274E00FC9E94 /* ViewController.swift */; };
+		0A100DD22980274E00FC9E94 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A100DD12980274E00FC9E94 /* StartViewController.swift */; };
 		0A100DD72980274F00FC9E94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A100DD62980274F00FC9E94 /* Assets.xcassets */; };
 		0A100DDA2980274F00FC9E94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A100DD82980274F00FC9E94 /* LaunchScreen.storyboard */; };
+		0A100DEA2980306400FC9E94 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A100DE92980306400FC9E94 /* ViewModel.swift */; };
+		0A100DED298030BD00FC9E94 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A100DEC298030BD00FC9E94 /* Dynamic.swift */; };
+		0A100DF1298034DB00FC9E94 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A100DF0298034DB00FC9E94 /* UILabel + Extension.swift */; };
+		0A100DF3298035EE00FC9E94 /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A100DF2298035EE00FC9E94 /* UIFont + Extension.swift */; };
+		0A100DF52980394200FC9E94 /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A100DF42980394200FC9E94 /* UIButton + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0A100DCA2980274E00FC9E94 /* TestTaskMiniGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTaskMiniGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A100DCD2980274E00FC9E94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A100DCF2980274E00FC9E94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0A100DD12980274E00FC9E94 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0A100DD12980274E00FC9E94 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		0A100DD62980274F00FC9E94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A100DD92980274F00FC9E94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A100DDB2980274F00FC9E94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A100DE92980306400FC9E94 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		0A100DEC298030BD00FC9E94 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
+		0A100DF0298034DB00FC9E94 /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
+		0A100DF2298035EE00FC9E94 /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
+		0A100DF42980394200FC9E94 /* UIButton + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +69,7 @@
 				0A100DE629802A1C00FC9E94 /* ViewModel */,
 				0A100DE529802A1100FC9E94 /* View */,
 				0A100DE2298029C100FC9E94 /* Resources */,
+				0A100DEE2980348300FC9E94 /* Extension */,
 			);
 			path = TestTaskMiniGame;
 			sourceTree = "<group>";
@@ -92,7 +103,7 @@
 		0A100DE529802A1100FC9E94 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0A100DD12980274E00FC9E94 /* ViewController.swift */,
+				0A100DD12980274E00FC9E94 /* StartViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -100,8 +111,36 @@
 		0A100DE629802A1C00FC9E94 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				0A100DEB2980309A00FC9E94 /* Bindings */,
+				0A100DE92980306400FC9E94 /* ViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0A100DEB2980309A00FC9E94 /* Bindings */ = {
+			isa = PBXGroup;
+			children = (
+				0A100DEC298030BD00FC9E94 /* Dynamic.swift */,
+			);
+			path = Bindings;
+			sourceTree = "<group>";
+		};
+		0A100DEE2980348300FC9E94 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0A100DEF298034B900FC9E94 /* UIKit */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		0A100DEF298034B900FC9E94 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				0A100DF0298034DB00FC9E94 /* UILabel + Extension.swift */,
+				0A100DF2298035EE00FC9E94 /* UIFont + Extension.swift */,
+				0A100DF42980394200FC9E94 /* UIButton + Extension.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,9 +213,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A100DD22980274E00FC9E94 /* ViewController.swift in Sources */,
+				0A100DF1298034DB00FC9E94 /* UILabel + Extension.swift in Sources */,
+				0A100DD22980274E00FC9E94 /* StartViewController.swift in Sources */,
+				0A100DED298030BD00FC9E94 /* Dynamic.swift in Sources */,
+				0A100DEA2980306400FC9E94 /* ViewModel.swift in Sources */,
 				0A100DCE2980274E00FC9E94 /* AppDelegate.swift in Sources */,
+				0A100DF3298035EE00FC9E94 /* UIFont + Extension.swift in Sources */,
 				0A100DD02980274E00FC9E94 /* SceneDelegate.swift in Sources */,
+				0A100DF52980394200FC9E94 /* UIButton + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
