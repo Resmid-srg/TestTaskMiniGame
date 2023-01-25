@@ -8,32 +8,30 @@
 import UIKit
 
 class StartViewController: UIViewController {
-
-    var viewModel = ViewModel()
     
-    let label = UILabel(text: "My Awesome Game")
+    let startLabel = UILabel(text: "My Awesome Game")
     
-    let buttonStartGame = UIButton(title: "Start New Game")
+    let startGameButton = UIButton(title: "Start New Game")
+    
+    let EnterNumberVC = EnterNumberViewController()
     
     //MARK: - viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindViewModel()
+        
+        //Setups
         setupConstraints()
-        //setupButtons()
-        view.backgroundColor = .blue
-    }
-
-    func bindViewModel() {
-        viewModel.statusText.bind({statusText in
-            DispatchQueue.main.async {
-                self.label.text = statusText
-            }
-        })
+        view.backgroundColor = .white
+        
+        //Buttons
+        startGameButton.addTarget(self, action: #selector(startGameButtonTapped), for: .touchUpInside)
     }
     
-
+    @objc private func startGameButtonTapped() {
+        present(EnterNumberVC, animated: true)
+    }
+    
 }
 
 //MARK: - Setup constraints
@@ -42,6 +40,26 @@ extension StartViewController {
     
     private func setupConstraints() {
         
+        //tAMIC
+        startLabel.translatesAutoresizingMaskIntoConstraints = false
+        startGameButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        //addSubviews
+        view.addSubview(startLabel)
+        view.addSubview(startGameButton)
+        
+        //Consttaints
+        NSLayoutConstraint.activate([
+            startLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
+            startLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            startGameButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
+            startGameButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            startGameButton.widthAnchor.constraint(equalToConstant: 340),
+            startGameButton.heightAnchor.constraint(equalToConstant: 46)
+        ])
     }
 }
 

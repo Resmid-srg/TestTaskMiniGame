@@ -17,6 +17,13 @@
 		0A100DF1298034DB00FC9E94 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A100DF0298034DB00FC9E94 /* UILabel + Extension.swift */; };
 		0A100DF3298035EE00FC9E94 /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A100DF2298035EE00FC9E94 /* UIFont + Extension.swift */; };
 		0A100DF52980394200FC9E94 /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A100DF42980394200FC9E94 /* UIButton + Extension.swift */; };
+		0A847F37298121500065CAE5 /* EnterNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A847F36298121500065CAE5 /* EnterNumberViewController.swift */; };
+		0A847F39298122C20065CAE5 /* ComputerGuessingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A847F38298122C20065CAE5 /* ComputerGuessingViewController.swift */; };
+		0A847F3B298122D20065CAE5 /* UserGuessingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A847F3A298122D20065CAE5 /* UserGuessingViewController.swift */; };
+		0A847F3D298122E30065CAE5 /* ScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A847F3C298122E30065CAE5 /* ScoresViewController.swift */; };
+		0A847F3F298131B30065CAE5 /* UIResponder + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A847F3E298131B30065CAE5 /* UIResponder + Extension.swift */; };
+		0A847F412981404E0065CAE5 /* UIStackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A847F402981404E0065CAE5 /* UIStackView + Extension.swift */; };
+		0A847F46298187EC0065CAE5 /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A847F45298187EC0065CAE5 /* UITextField + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +39,13 @@
 		0A100DF0298034DB00FC9E94 /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
 		0A100DF2298035EE00FC9E94 /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
 		0A100DF42980394200FC9E94 /* UIButton + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
+		0A847F36298121500065CAE5 /* EnterNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNumberViewController.swift; sourceTree = "<group>"; };
+		0A847F38298122C20065CAE5 /* ComputerGuessingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerGuessingViewController.swift; sourceTree = "<group>"; };
+		0A847F3A298122D20065CAE5 /* UserGuessingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGuessingViewController.swift; sourceTree = "<group>"; };
+		0A847F3C298122E30065CAE5 /* ScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresViewController.swift; sourceTree = "<group>"; };
+		0A847F3E298131B30065CAE5 /* UIResponder + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder + Extension.swift"; sourceTree = "<group>"; };
+		0A847F402981404E0065CAE5 /* UIStackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extension.swift"; sourceTree = "<group>"; };
+		0A847F45298187EC0065CAE5 /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,8 +82,9 @@
 				0A100DE3298029F600FC9E94 /* Model */,
 				0A100DE629802A1C00FC9E94 /* ViewModel */,
 				0A100DE529802A1100FC9E94 /* View */,
-				0A100DE2298029C100FC9E94 /* Resources */,
 				0A100DEE2980348300FC9E94 /* Extension */,
+				0A847F422981829A0065CAE5 /* Helpers */,
+				0A100DE2298029C100FC9E94 /* Resources */,
 			);
 			path = TestTaskMiniGame;
 			sourceTree = "<group>";
@@ -104,6 +119,10 @@
 			isa = PBXGroup;
 			children = (
 				0A100DD12980274E00FC9E94 /* StartViewController.swift */,
+				0A847F36298121500065CAE5 /* EnterNumberViewController.swift */,
+				0A847F38298122C20065CAE5 /* ComputerGuessingViewController.swift */,
+				0A847F3A298122D20065CAE5 /* UserGuessingViewController.swift */,
+				0A847F3C298122E30065CAE5 /* ScoresViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -137,10 +156,20 @@
 			isa = PBXGroup;
 			children = (
 				0A100DF0298034DB00FC9E94 /* UILabel + Extension.swift */,
+				0A847F402981404E0065CAE5 /* UIStackView + Extension.swift */,
 				0A100DF2298035EE00FC9E94 /* UIFont + Extension.swift */,
 				0A100DF42980394200FC9E94 /* UIButton + Extension.swift */,
+				0A847F3E298131B30065CAE5 /* UIResponder + Extension.swift */,
+				0A847F45298187EC0065CAE5 /* UITextField + Extension.swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		0A847F422981829A0065CAE5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,10 +243,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A100DF1298034DB00FC9E94 /* UILabel + Extension.swift in Sources */,
+				0A847F412981404E0065CAE5 /* UIStackView + Extension.swift in Sources */,
 				0A100DD22980274E00FC9E94 /* StartViewController.swift in Sources */,
+				0A847F39298122C20065CAE5 /* ComputerGuessingViewController.swift in Sources */,
+				0A847F37298121500065CAE5 /* EnterNumberViewController.swift in Sources */,
+				0A847F3F298131B30065CAE5 /* UIResponder + Extension.swift in Sources */,
 				0A100DED298030BD00FC9E94 /* Dynamic.swift in Sources */,
+				0A847F3B298122D20065CAE5 /* UserGuessingViewController.swift in Sources */,
 				0A100DEA2980306400FC9E94 /* ViewModel.swift in Sources */,
+				0A847F3D298122E30065CAE5 /* ScoresViewController.swift in Sources */,
 				0A100DCE2980274E00FC9E94 /* AppDelegate.swift in Sources */,
+				0A847F46298187EC0065CAE5 /* UITextField + Extension.swift in Sources */,
 				0A100DF3298035EE00FC9E94 /* UIFont + Extension.swift in Sources */,
 				0A100DD02980274E00FC9E94 /* SceneDelegate.swift in Sources */,
 				0A100DF52980394200FC9E94 /* UIButton + Extension.swift in Sources */,
