@@ -9,9 +9,12 @@ import UIKit
 
 class EnterNumberViewController: UIViewController {
     
+    private let viewModel = EnterNumberViewModel()
+    
+    let validationInputText = UILabel(text: "Enter a number from 1 to 100")
     let guessTheNumberTextField = UITextField(textPlaceholder: "Guess the Number", borderStyle: .roundedRect, textAlignment: .center)
     
-    let enterTheNumberButton = UIButton(title: "Enter the Number")
+    let enterTheNumberButton = UIButton(title: "Enter the Number", isEnabled: false, alpha: 0.5)
     
     //MARK: - viewDidLoad
 
@@ -22,19 +25,51 @@ class EnterNumberViewController: UIViewController {
         guessTheNumberTextField.delegate = self
         
         //Setups
-        view.backgroundColor = .white
-        
+        view.backgroundColor = .systemBackground
+        bindViewModel()
         setupConstraints()
         setupKeyboard()
         
-        //Buttons
+        //Buttons and TextField
         enterTheNumberButton.addTarget(self, action: #selector(enterTheNumberButtonTapped), for: .touchUpInside)
+        
+        guessTheNumberTextField.addTarget(self, action: #selector(guessTheNumberTextFieldDidChange), for: .editingChanged)
     }
     
-    //MARK: - ButtonsAction
+    //MARK: - ButtonsAction and TextFieldAction
     
     @objc private func enterTheNumberButtonTapped() {
+        let compGuessingVC = ComputerGuessingViewController()
+        compGuessingVC.modalPresentationStyle = .fullScreen
+        present(compGuessingVC, animated: true)
+    }
+    
+    @objc private func guessTheNumberTextFieldDidChange(_ textField: UITextField) {
+        viewModel.userDidChangedTextField(text: textField.text!)
+    }
+    
+    //MARK: - Binding ViewModel
+    
+    func bindViewModel() {
+        viewModel.validationInputText.bind({ [weak self] validationInputText in
+            DispatchQueue.main.async {
+                self?.validationInputText.fadeTransition(0.4)
+                self?.validationInputText.text = validationInputText
+            }
+        })
         
+        viewModel.colorValidationText.bind({ [weak self] colorValidationText in
+            DispatchQueue.main.async {
+                self?.validationInputText.textColor = UIColor(named: colorValidationText)
+            }
+        })
+        
+        viewModel.buttonAccessibility.bind({ [weak self] buttonAccessibility in
+            DispatchQueue.main.async {
+                self?.enterTheNumberButton.isEnabled = buttonAccessibility
+                self?.enterTheNumberButton.alpha = buttonAccessibility ? 1 : 0.5
+            }
+        })
     }
 }
 
@@ -43,12 +78,15 @@ class EnterNumberViewController: UIViewController {
 extension EnterNumberViewController {
     
     private func setupConstraints() {
+        
         //tAMIC
         guessTheNumberTextField.translatesAutoresizingMaskIntoConstraints = false
+        validationInputText.translatesAutoresizingMaskIntoConstraints = false
         enterTheNumberButton.translatesAutoresizingMaskIntoConstraints = false
         
         //addSubviews
         view.addSubview(guessTheNumberTextField)
+        view.addSubview(validationInputText)
         view.addSubview(enterTheNumberButton)
         
         //Constraints
@@ -57,6 +95,11 @@ extension EnterNumberViewController {
             guessTheNumberTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             guessTheNumberTextField.widthAnchor.constraint(equalToConstant: 340),
             guessTheNumberTextField.heightAnchor.constraint(equalToConstant: 46)
+        ])
+        
+        NSLayoutConstraint.activate([
+            validationInputText.topAnchor.constraint(equalTo: guessTheNumberTextField.bottomAnchor, constant: 16),
+            validationInputText.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([

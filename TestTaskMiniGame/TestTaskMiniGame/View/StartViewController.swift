@@ -13,8 +13,6 @@ class StartViewController: UIViewController {
     
     let startGameButton = UIButton(title: "Start New Game")
     
-    let EnterNumberVC = EnterNumberViewController()
-    
     //MARK: - viewDidLoad
     
     override func viewDidLoad() {
@@ -22,14 +20,16 @@ class StartViewController: UIViewController {
         
         //Setups
         setupConstraints()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         
         //Buttons
         startGameButton.addTarget(self, action: #selector(startGameButtonTapped), for: .touchUpInside)
     }
     
     @objc private func startGameButtonTapped() {
-        present(EnterNumberVC, animated: true)
+        let enterNumberVC = EnterNumberViewController()
+        enterNumberVC.modalPresentationStyle = .fullScreen
+        present(enterNumberVC, animated: true)
     }
     
 }

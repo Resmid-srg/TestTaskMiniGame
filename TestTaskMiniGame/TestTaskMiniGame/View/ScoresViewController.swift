@@ -22,6 +22,7 @@ class ScoresViewController: UIViewController {
         super.viewDidLoad()
         
         //Setups
+        view.backgroundColor = .systemBackground
         setupConstraints()
         
     }

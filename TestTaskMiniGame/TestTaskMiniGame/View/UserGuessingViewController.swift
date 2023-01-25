@@ -27,7 +27,7 @@ class UserGuessingViewController: UIViewController {
         userAnswerTextField.delegate = self
 
         //Setups
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         setupConstraints()
         
         //Buttons

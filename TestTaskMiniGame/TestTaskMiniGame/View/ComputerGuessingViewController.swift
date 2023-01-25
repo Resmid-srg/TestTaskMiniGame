@@ -23,8 +23,8 @@ class ComputerGuessingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
-        
+        view.backgroundColor = .systemBackground
+    
         //Setups
         setupConstraints()
         

@@ -11,9 +11,11 @@ extension UIButton {
     
     convenience init(title: String,
                      titleColor: UIColor? = .white,
-                     backgroundColor: UIColor? = .blue,
+                     backgroundColor: UIColor? = UIColor(named: "buttonColorNormal"),
                      font: UIFont? = .avenir20(),
-                     cornerRadius: CGFloat = 16) {
+                     cornerRadius: CGFloat = 16,
+                     isEnabled: Bool = true,
+                     alpha: CGFloat = 1) {
         self.init()
         
         self.setTitle(title, for: .normal)
@@ -21,5 +23,7 @@ extension UIButton {
         self.backgroundColor = backgroundColor
         self.titleLabel?.font = font
         self.layer.cornerRadius = cornerRadius
+        self.isEnabled = isEnabled
+        self.alpha = alpha
     }
 }

@@ -12,7 +12,7 @@
 		0A100DD22980274E00FC9E94 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A100DD12980274E00FC9E94 /* StartViewController.swift */; };
 		0A100DD72980274F00FC9E94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A100DD62980274F00FC9E94 /* Assets.xcassets */; };
 		0A100DDA2980274F00FC9E94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A100DD82980274F00FC9E94 /* LaunchScreen.storyboard */; };
-		0A100DEA2980306400FC9E94 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A100DE92980306400FC9E94 /* ViewModel.swift */; };
+		0A100DEA2980306400FC9E94 /* EnterNumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A100DE92980306400FC9E94 /* EnterNumberViewModel.swift */; };
 		0A100DED298030BD00FC9E94 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A100DEC298030BD00FC9E94 /* Dynamic.swift */; };
 		0A100DF1298034DB00FC9E94 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A100DF0298034DB00FC9E94 /* UILabel + Extension.swift */; };
 		0A100DF3298035EE00FC9E94 /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A100DF2298035EE00FC9E94 /* UIFont + Extension.swift */; };
@@ -24,6 +24,8 @@
 		0A847F3F298131B30065CAE5 /* UIResponder + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A847F3E298131B30065CAE5 /* UIResponder + Extension.swift */; };
 		0A847F412981404E0065CAE5 /* UIStackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A847F402981404E0065CAE5 /* UIStackView + Extension.swift */; };
 		0A847F46298187EC0065CAE5 /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A847F45298187EC0065CAE5 /* UITextField + Extension.swift */; };
+		0A847F48298192A70065CAE5 /* ComputerGuessingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A847F47298192A70065CAE5 /* ComputerGuessingViewModel.swift */; };
+		0A847F4A2981942F0065CAE5 /* UserGuessingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A847F492981942E0065CAE5 /* UserGuessingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +36,7 @@
 		0A100DD62980274F00FC9E94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A100DD92980274F00FC9E94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A100DDB2980274F00FC9E94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A100DE92980306400FC9E94 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		0A100DE92980306400FC9E94 /* EnterNumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNumberViewModel.swift; sourceTree = "<group>"; };
 		0A100DEC298030BD00FC9E94 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		0A100DF0298034DB00FC9E94 /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
 		0A100DF2298035EE00FC9E94 /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
@@ -46,6 +48,8 @@
 		0A847F3E298131B30065CAE5 /* UIResponder + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder + Extension.swift"; sourceTree = "<group>"; };
 		0A847F402981404E0065CAE5 /* UIStackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extension.swift"; sourceTree = "<group>"; };
 		0A847F45298187EC0065CAE5 /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
+		0A847F47298192A70065CAE5 /* ComputerGuessingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerGuessingViewModel.swift; sourceTree = "<group>"; };
+		0A847F492981942E0065CAE5 /* UserGuessingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGuessingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +135,9 @@
 			isa = PBXGroup;
 			children = (
 				0A100DEB2980309A00FC9E94 /* Bindings */,
-				0A100DE92980306400FC9E94 /* ViewModel.swift */,
+				0A100DE92980306400FC9E94 /* EnterNumberViewModel.swift */,
+				0A847F47298192A70065CAE5 /* ComputerGuessingViewModel.swift */,
+				0A847F492981942E0065CAE5 /* UserGuessingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -250,12 +256,14 @@
 				0A847F3F298131B30065CAE5 /* UIResponder + Extension.swift in Sources */,
 				0A100DED298030BD00FC9E94 /* Dynamic.swift in Sources */,
 				0A847F3B298122D20065CAE5 /* UserGuessingViewController.swift in Sources */,
-				0A100DEA2980306400FC9E94 /* ViewModel.swift in Sources */,
+				0A100DEA2980306400FC9E94 /* EnterNumberViewModel.swift in Sources */,
 				0A847F3D298122E30065CAE5 /* ScoresViewController.swift in Sources */,
+				0A847F48298192A70065CAE5 /* ComputerGuessingViewModel.swift in Sources */,
 				0A100DCE2980274E00FC9E94 /* AppDelegate.swift in Sources */,
 				0A847F46298187EC0065CAE5 /* UITextField + Extension.swift in Sources */,
 				0A100DF3298035EE00FC9E94 /* UIFont + Extension.swift in Sources */,
 				0A100DD02980274E00FC9E94 /* SceneDelegate.swift in Sources */,
+				0A847F4A2981942F0065CAE5 /* UserGuessingViewModel.swift in Sources */,
 				0A100DF52980394200FC9E94 /* UIButton + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
