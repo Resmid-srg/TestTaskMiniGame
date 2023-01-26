@@ -33,7 +33,7 @@ class EnterNumberViewModel {
             colorValidationText.value = "wrongValidationTextColor"
             buttonAccessibility.value = false
         } else {
-            validationInputText.value = "Great! Lest's start?"
+            validationInputText.value = "Great! Let's start?"
             colorValidationText.value = "rightValidationTextColor"
             buttonAccessibility.value = true
         }
