@@ -19,19 +19,20 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
         
         //Setups
-        setupConstraints()
         view.backgroundColor = .systemBackground
+        setupConstraints()
         
         //Buttons
         startGameButton.addTarget(self, action: #selector(startGameButtonTapped), for: .touchUpInside)
     }
+    
+    //MARK: - ButtonsAction
     
     @objc private func startGameButtonTapped() {
         let enterNumberVC = EnterNumberViewController()
         enterNumberVC.modalPresentationStyle = .fullScreen
         present(enterNumberVC, animated: true)
     }
-    
 }
 
 //MARK: - Setup constraints

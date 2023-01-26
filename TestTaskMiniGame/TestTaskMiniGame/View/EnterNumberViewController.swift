@@ -29,7 +29,7 @@ class EnterNumberViewController: UIViewController {
         bindViewModel()
         setupConstraints()
         
-        //Buttons and TextField
+        //Buttons and TextField targets
         enterTheNumberButton.addTarget(self, action: #selector(enterTheNumberButtonTapped), for: .touchUpInside)
         
         guessTheNumberTextField.addTarget(self, action: #selector(guessTheNumberTextFieldDidChange), for: .editingChanged)
@@ -41,11 +41,11 @@ class EnterNumberViewController: UIViewController {
         guard let strHuddenNumber = guessTheNumberTextField.text else { return print("enterTheNumberTapped --- User-entered text is nil")}
         guard let hiddenNumber = Int(strHuddenNumber) else { return print("enterTheNumberTapped --- User-entered text is not converted Int") }
         
+        viewModel.userButtonTapped(number: hiddenNumber)
+        
         let compGuessingVC = ComputerGuessingViewController()
         compGuessingVC.modalPresentationStyle = .fullScreen
         present(compGuessingVC, animated: true)
-        
-        viewModel.userButtonTapped(number: hiddenNumber)
     }
     
     @objc private func guessTheNumberTextFieldDidChange(_ textField: UITextField) {

@@ -89,7 +89,6 @@
 				0A100DE629802A1C00FC9E94 /* ViewModel */,
 				0A100DE529802A1100FC9E94 /* View */,
 				0A100DEE2980348300FC9E94 /* Extension */,
-				0A847F422981829A0065CAE5 /* Helpers */,
 				0A100DE2298029C100FC9E94 /* Resources */,
 			);
 			path = TestTaskMiniGame;
@@ -172,13 +171,6 @@
 				0A847F45298187EC0065CAE5 /* UITextField + Extension.swift */,
 			);
 			path = UIKit;
-			sourceTree = "<group>";
-		};
-		0A847F422981829A0065CAE5 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

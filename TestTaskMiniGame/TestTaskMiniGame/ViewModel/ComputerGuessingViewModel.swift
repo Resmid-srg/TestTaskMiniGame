@@ -18,6 +18,8 @@ class ComputerGuessingViewModel {
     var minNumber = 0
     var randomNumber = Int.random(in: 1...100)
     
+    //MARK: - Methods
+    
     func startGame() {
         userNumberIs.value = "Your number is - \(randomNumber)?"
         Score.userScore.numberOfTry = 1

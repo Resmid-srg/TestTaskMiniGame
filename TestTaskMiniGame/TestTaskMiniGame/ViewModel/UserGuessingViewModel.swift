@@ -14,6 +14,8 @@ class UserGuessingViewModel {
     var tapRecognizerAccessibility = Dynamic(false)
     var resultScore = Dynamic((0, 0, ""))
         
+    //MARK: - Methods
+    
     func startGame() {
         Score.computerScore.hiddenNumber = Int.random(in: 1...100)
         Score.computerScore.numberOfTry = 1

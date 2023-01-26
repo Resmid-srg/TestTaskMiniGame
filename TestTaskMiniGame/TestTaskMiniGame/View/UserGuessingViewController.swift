@@ -36,7 +36,6 @@ class UserGuessingViewController: UIViewController {
 
         //Setups
         view.backgroundColor = .systemBackground
-        
         setupConstraints()
         bindViewModel()
         viewModel.startGame()
@@ -78,6 +77,7 @@ extension UserGuessingViewController {
         
         viewModel.computerNumberIs.bind({ [weak self] computerNumberIs in
             DispatchQueue.main.async {
+                self?.compNumberIsLabel.pushUpTransition(0.3)
                 self?.compNumberIsLabel.text = computerNumberIs
             }
         })
@@ -85,6 +85,7 @@ extension UserGuessingViewController {
         viewModel.tapRecognizerAccessibility.bind({ [weak self] accessibilityIs in
             DispatchQueue.main.async {
                 self?.tapGestureRecognizer.isEnabled = accessibilityIs
+                self?.guessButton.isEnabled = false
             }
         })
         

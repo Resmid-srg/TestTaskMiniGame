@@ -15,7 +15,7 @@ extension UILabel {
         self.font = font
     }
     
-    //Animation Fade in UILabel
+    //Animation Fade
     func fadeTransition(_ duration:CFTimeInterval) {
         let animation = CATransition()
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
@@ -24,6 +24,7 @@ extension UILabel {
         layer.add(animation, forKey: CATransitionType.fade.rawValue)
     }
     
+    //Animation Push
     func pushUpTransition(_ duration:CFTimeInterval) {
         let animation = CATransition()
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)

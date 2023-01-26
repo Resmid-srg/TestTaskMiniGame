@@ -56,7 +56,6 @@ class ScoresViewController: UIViewController {
         let StartVC = StartViewController()
         StartVC.modalPresentationStyle = .fullScreen
         present(StartVC, animated: true)
-
     }
 }
 

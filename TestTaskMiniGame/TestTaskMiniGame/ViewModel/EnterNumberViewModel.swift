@@ -8,10 +8,12 @@
 import Foundation
 
 class EnterNumberViewModel {
-        
+    
     var validationInputText = Dynamic("")
     var colorValidationText = Dynamic("")
     var buttonAccessibility = Dynamic(false)
+    
+    //MARK: - Methods
     
     func userButtonTapped(number: Int) {
         Score.userScore.hiddenNumber = number
