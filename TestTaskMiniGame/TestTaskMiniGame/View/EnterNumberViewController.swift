@@ -28,7 +28,6 @@ class EnterNumberViewController: UIViewController {
         view.backgroundColor = .systemBackground
         bindViewModel()
         setupConstraints()
-        setupKeyboard()
         
         //Buttons and TextField
         enterTheNumberButton.addTarget(self, action: #selector(enterTheNumberButtonTapped), for: .touchUpInside)
@@ -116,39 +115,13 @@ extension EnterNumberViewController {
     }
 }
 
-//MARK: - UITextFieldDelegate and Keyboard setup
+//MARK: - UITextFieldDelegate
 
 extension EnterNumberViewController: UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
         super.touchesBegan(touches, with: event)
-    }
-    
-    //Show and Hidding
-    private func setupKeyboard() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc func keyboardWillShow(sender: NSNotification) {
-        guard let userInfo = sender.userInfo,
-              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
-              let currentTextField = UIResponder.currentFirst() as? UITextField else { return }
-        
-        let keyboardTopY = keyboardFrame.cgRectValue.origin.y
-        let convertedTextFieldFrame = self.view.convert(currentTextField.frame, from: currentTextField.superview)
-        let textFieldBottomY = convertedTextFieldFrame.origin.y + convertedTextFieldFrame.size.height
-        
-        if textFieldBottomY < keyboardTopY {
-            let textBoxY = convertedTextFieldFrame.origin.y
-            let newFrameY = (textBoxY - keyboardTopY / 2) * -1
-            self.view.frame.origin.y = newFrameY
-        }
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        view.frame.origin.y = 0
     }
 }
 

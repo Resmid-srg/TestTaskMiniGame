@@ -9,16 +9,18 @@ import UIKit
 
 class UserGuessingViewController: UIViewController {
     
+    private let viewModel = UserGuessingViewModel()
     
-    
-    let tryNumberLabel = UILabel(text: "Try № ")
+    let tryNumberLabel = UILabel(text: "Try № 1")
     let youGuessingLabel = UILabel(text: "You are guessing")
-    let compNumberIsLabel = UILabel(text: " 1 1 1 1 ")
+    let compNumberIsLabel = UILabel()
     let userAnswerTextField = UITextField(textPlaceholder: "Enter the Number",
                                           borderStyle: .roundedRect,
                                           textAlignment: .center)
 
     let guessButton = UIButton(title: "Guess")
+    
+    var tapGestureRecognizer = UIGestureRecognizer()
     
     //MARK: - viewDidLoad
 
@@ -30,16 +32,30 @@ class UserGuessingViewController: UIViewController {
 
         //Setups
         view.backgroundColor = .systemBackground
-        setupConstraints()
         
-        //Buttons
+        setupConstraints()
+        bindViewModel()
+        viewModel.startGame()
+        
+        //Buttons and GestureRecognizer
         guessButton.addTarget(self, action: #selector(guessButtonTapped), for: .touchUpInside)
+        
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapView(_:)))
+        tapGestureRecognizer.isEnabled = false
+        view.addGestureRecognizer(tapGestureRecognizer)
     }
     
-    //MARK: - Buttons Action
+    //MARK: - Buttons Action and TapActions
+    
+    @objc func didTapView(_ sender: UITapGestureRecognizer) {
+        let ScoresVC = ScoresViewController()
+        ScoresVC.modalPresentationStyle = .fullScreen
+        present(ScoresVC, animated: true)
+    }
     
     @objc func guessButtonTapped() {
-        
+        viewModel.userGuessButtonTapped(text: userAnswerTextField.text!)
+        userAnswerTextField.text = ""
     }
 }
 
@@ -47,11 +63,25 @@ class UserGuessingViewController: UIViewController {
 
 extension UserGuessingViewController {
     
-    viewModel.tryNumber.bind({ [weak self] tryNumber in
-        DispatchQueue.main.async {
-            self?.tryNumberLabel.text = tryNumber
-        }
-    })
+    func bindViewModel() {
+        viewModel.tryNumber.bind({ [weak self] tryNumber in
+            DispatchQueue.main.async {
+                self?.tryNumberLabel.text = tryNumber
+            }
+        })
+        
+        viewModel.computerNumberIs.bind({ [weak self] computerNumberIs in
+            DispatchQueue.main.async {
+                self?.compNumberIsLabel.text = computerNumberIs
+            }
+        })
+        
+        viewModel.tapRecognizerAccessibility.bind({ [weak self] accessibilityIs in
+            DispatchQueue.main.async {
+                self?.tapGestureRecognizer.isEnabled = accessibilityIs
+            }
+        })
+    }
 }
 
 //MARK: - Setup constraints
@@ -77,6 +107,11 @@ extension UserGuessingViewController {
         
         //Constraints
         NSLayoutConstraint.activate([
+            userAnswerTextField.widthAnchor.constraint(equalToConstant: 340),
+            userAnswerTextField.heightAnchor.constraint(equalToConstant: 46)
+        ])
+        
+        NSLayoutConstraint.activate([
             guessButton.widthAnchor.constraint(equalToConstant: 340),
             guessButton.heightAnchor.constraint(equalToConstant: 46)
         ])
@@ -95,32 +130,6 @@ extension UserGuessingViewController: UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
         super.touchesBegan(touches, with: event)
-    }
-    
-    //Show and Hidding
-    private func setupKeyboard() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc func keyboardWillShow(sender: NSNotification) {
-        guard let userInfo = sender.userInfo,
-              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
-              let currentTextField = UIResponder.currentFirst() as? UITextField else { return }
-        
-        let keyboardTopY = keyboardFrame.cgRectValue.origin.y
-        let convertedTextFieldFrame = self.view.convert(currentTextField.frame, from: currentTextField.superview)
-        let textFieldBottomY = convertedTextFieldFrame.origin.y + convertedTextFieldFrame.size.height
-        
-        if textFieldBottomY < keyboardTopY {
-            let textBoxY = convertedTextFieldFrame.origin.y
-            let newFrameY = (textBoxY - keyboardTopY / 2) * -1
-            self.view.frame.origin.y = newFrameY
-        }
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        view.frame.origin.y = 0
     }
 }
 
