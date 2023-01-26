@@ -43,7 +43,7 @@ class UserGuessingViewModel {
         resultScore.value.1 = Score.userScore.numberOfTry
         resultScore.value.0 = Score.computerScore.numberOfTry
         
-        if resultScore.value.1 < resultScore.value.0 {
+        if resultScore.value.1 > resultScore.value.0 {
             resultScore.value.2 = "You Win"
         } else if resultScore.value.1 == resultScore.value.0 {
             resultScore.value.2 = "Draw"

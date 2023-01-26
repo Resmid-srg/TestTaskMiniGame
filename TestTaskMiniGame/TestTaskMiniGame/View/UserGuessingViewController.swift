@@ -110,7 +110,7 @@ extension UserGuessingViewController {
                                           alignment: .center)
         let mainStackView = UIStackView(arrangedSubviews: [headerStackView, userAnswerTextField, guessButton, compNumberIsLabel],
                                         axis: .vertical,
-                                        spacing: 60,
+                                        spacing: 40,
                                         alignment: .center)
         
         //tAMIC
@@ -131,8 +131,8 @@ extension UserGuessingViewController {
         ])
         
         NSLayoutConstraint.activate([
-            mainStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            mainStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            mainStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
     }
 }

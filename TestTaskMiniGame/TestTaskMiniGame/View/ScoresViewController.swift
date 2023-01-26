@@ -84,12 +84,12 @@ extension ScoresViewController {
         
         //Constraints
         NSLayoutConstraint.activate([
-            scoresTitleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 180),
+            scoresTitleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             scoresTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            resultScoresStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 36),
+            resultScoresStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 48),
             resultScoresStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
         
@@ -101,7 +101,7 @@ extension ScoresViewController {
         ])
         
         NSLayoutConstraint.activate([
-            resultGameLabel.bottomAnchor.constraint(equalTo: goToMainButton.topAnchor, constant: -80),
+            resultGameLabel.bottomAnchor.constraint(equalTo: goToMainButton.topAnchor, constant: -48),
             resultGameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
