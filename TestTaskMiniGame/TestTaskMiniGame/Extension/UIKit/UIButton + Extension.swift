@@ -15,7 +15,9 @@ extension UIButton {
                      font: UIFont? = .avenir20(),
                      cornerRadius: CGFloat = 16,
                      isEnabled: Bool = true,
-                     alpha: CGFloat = 1) {
+                     alpha: CGFloat = 1,
+                     borderColor: CGColor = CGColor(gray: 0, alpha: 1),
+                     borderWidth: CGFloat = 1){
         self.init()
         
         self.setTitle(title, for: .normal)
@@ -25,5 +27,7 @@ extension UIButton {
         self.layer.cornerRadius = cornerRadius
         self.isEnabled = isEnabled
         self.alpha = alpha
+        self.layer.borderColor = borderColor
+        self.layer.borderWidth = borderWidth
     }
 }

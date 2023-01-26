@@ -50,7 +50,7 @@ extension StartViewController {
         
         //Consttaints
         NSLayoutConstraint.activate([
-            startLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
+            startLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             startLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         

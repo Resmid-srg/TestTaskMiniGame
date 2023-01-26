@@ -39,9 +39,14 @@ class EnterNumberViewController: UIViewController {
     //MARK: - ButtonsAction and TextFieldAction
     
     @objc private func enterTheNumberButtonTapped() {
+        guard let strHuddenNumber = guessTheNumberTextField.text else { return print("enterTheNumberTapped --- User-entered text is nil")}
+        guard let hiddenNumber = Int(strHuddenNumber) else { return print("enterTheNumberTapped --- User-entered text is not converted Int") }
+        
         let compGuessingVC = ComputerGuessingViewController()
         compGuessingVC.modalPresentationStyle = .fullScreen
         present(compGuessingVC, animated: true)
+        
+        viewModel.userButtonTapped(number: hiddenNumber)
     }
     
     @objc private func guessTheNumberTextFieldDidChange(_ textField: UITextField) {
@@ -91,7 +96,7 @@ extension EnterNumberViewController {
         
         //Constraints
         NSLayoutConstraint.activate([
-            guessTheNumberTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
+            guessTheNumberTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 110),
             guessTheNumberTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             guessTheNumberTextField.widthAnchor.constraint(equalToConstant: 340),
             guessTheNumberTextField.heightAnchor.constraint(equalToConstant: 46)

@@ -9,12 +9,14 @@ import Foundation
 
 class EnterNumberViewModel {
     
+    var userScore = Score(numberOfTry: 0, hiddenNumber: -1)
+    
     var validationInputText = Dynamic("")
     var colorValidationText = Dynamic("")
     var buttonAccessibility = Dynamic(false)
     
-    func userButtonTapped(text: String) {
-        
+    func userButtonTapped(number: Int) {
+        userScore.hiddenNumber = number
     }
     
     func userDidChangedTextField(text: String) {

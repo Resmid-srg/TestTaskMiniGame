@@ -26,6 +26,7 @@
 		0A847F46298187EC0065CAE5 /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A847F45298187EC0065CAE5 /* UITextField + Extension.swift */; };
 		0A847F48298192A70065CAE5 /* ComputerGuessingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A847F47298192A70065CAE5 /* ComputerGuessingViewModel.swift */; };
 		0A847F4A2981942F0065CAE5 /* UserGuessingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A847F492981942E0065CAE5 /* UserGuessingViewModel.swift */; };
+		0A847F4C2981C26D0065CAE5 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A847F4B2981C26D0065CAE5 /* Score.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		0A847F45298187EC0065CAE5 /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
 		0A847F47298192A70065CAE5 /* ComputerGuessingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerGuessingViewModel.swift; sourceTree = "<group>"; };
 		0A847F492981942E0065CAE5 /* UserGuessingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGuessingViewModel.swift; sourceTree = "<group>"; };
+		0A847F4B2981C26D0065CAE5 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		0A100DE3298029F600FC9E94 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0A847F4B2981C26D0065CAE5 /* Score.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				0A100DF3298035EE00FC9E94 /* UIFont + Extension.swift in Sources */,
 				0A100DD02980274E00FC9E94 /* SceneDelegate.swift in Sources */,
 				0A847F4A2981942F0065CAE5 /* UserGuessingViewModel.swift in Sources */,
+				0A847F4C2981C26D0065CAE5 /* Score.swift in Sources */,
 				0A100DF52980394200FC9E94 /* UIButton + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

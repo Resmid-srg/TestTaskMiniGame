@@ -23,4 +23,12 @@ extension UILabel {
         animation.duration = duration
         layer.add(animation, forKey: CATransitionType.fade.rawValue)
     }
+    
+    func pushUpTransition(_ duration:CFTimeInterval) {
+        let animation = CATransition()
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        animation.type = CATransitionType.push
+        animation.duration = duration
+        layer.add(animation, forKey: CATransitionType.push.rawValue)
+    }
 }

@@ -9,6 +9,8 @@ import UIKit
 
 class UserGuessingViewController: UIViewController {
     
+    
+    
     let tryNumberLabel = UILabel(text: "Try № ")
     let youGuessingLabel = UILabel(text: "You are guessing")
     let compNumberIsLabel = UILabel(text: " 1 1 1 1 ")
@@ -41,6 +43,17 @@ class UserGuessingViewController: UIViewController {
     }
 }
 
+//MARK: - Binding viewModel
+
+extension UserGuessingViewController {
+    
+    viewModel.tryNumber.bind({ [weak self] tryNumber in
+        DispatchQueue.main.async {
+            self?.tryNumberLabel.text = tryNumber
+        }
+    })
+}
+
 //MARK: - Setup constraints
 
 extension UserGuessingViewController {
@@ -69,7 +82,7 @@ extension UserGuessingViewController {
         ])
         
         NSLayoutConstraint.activate([
-            mainStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 180),
+            mainStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             mainStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
