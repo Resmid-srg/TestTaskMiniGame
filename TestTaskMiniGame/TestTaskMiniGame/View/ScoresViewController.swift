@@ -9,12 +9,29 @@ import UIKit
 
 class ScoresViewController: UIViewController {
     
+    let userScore: Int 
+    let computerScore: Int
+    let winOrLoose: String
+    
     let scoresTitleLabel = UILabel(text: "Scores:")
-    let userScoreLabel = UILabel(text: "aaa")
-    let computerScoreLabel = UILabel(text: "bbb")
-    let resultGameLabel = UILabel(text: "QQQQQ")
+    let userScoreLabel = UILabel(text: "You'r tries count: ")
+    let computerScoreLabel = UILabel(text: "Computer's tries count: ")
+    let resultGameLabel = UILabel(text: "")
     
     let goToMainButton = UIButton(title: "Main Menu")
+    
+    //MARK: - init
+    
+    init(userScore: Int, computerScore: Int, winOrLoose: String) {
+        self.userScore = userScore
+        self.computerScore = computerScore
+        self.winOrLoose = winOrLoose
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //MARK: - viewDidLoad
 
@@ -25,6 +42,21 @@ class ScoresViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setupConstraints()
         
+        userScoreLabel.text! += String(userScore)
+        computerScoreLabel.text! += String(computerScore)
+        resultGameLabel.text = winOrLoose
+        
+        //Buttons
+        goToMainButton.addTarget(self, action: #selector(goToMainButtonTapped), for: .touchUpInside)
+    }
+    
+    //MARK: - ButtonsAction
+    
+    @objc func goToMainButtonTapped() {
+        let StartVC = StartViewController()
+        StartVC.modalPresentationStyle = .fullScreen
+        present(StartVC, animated: true)
+
     }
 }
 
@@ -75,25 +107,3 @@ extension ScoresViewController {
     }
 }
 
-//MARK: - SwiftUI
-
-import SwiftUI
-
-struct ScoresVCProvider: PreviewProvider {
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        
-        let viewController = ScoresViewController()
-        
-        func makeUIViewController(context: UIViewControllerRepresentableContext<ScoresVCProvider.ContainerView>) -> ScoresViewController {
-            return viewController
-        }
-        
-        func updateUIViewController(_ uiViewController: ScoresVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<ScoresVCProvider.ContainerView>) {
-            
-        }
-    }
-}

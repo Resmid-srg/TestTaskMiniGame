@@ -8,9 +8,7 @@
 import Foundation
 
 class ComputerGuessingViewModel {
-    
-    var userScore = EnterNumberViewModel().userScore
-    
+        
     var userNumberIs = Dynamic("")
     var tryNumber = Dynamic("")
     var resultRound = Dynamic("")
@@ -22,7 +20,7 @@ class ComputerGuessingViewModel {
     
     func startGame() {
         userNumberIs.value = "Your number is - \(randomNumber)?"
-        userScore.numberOfTry = 1
+        Score.userScore.numberOfTry = 1
     }
     
     func userButtonTapped(result: String) {
@@ -30,14 +28,14 @@ class ComputerGuessingViewModel {
         switch result {
         case "<":
             maxNumber = randomNumber - 1
-            if minNumber >= maxNumber { fallthrough }
-            userScore.numberOfTry += 1
+            if minNumber > maxNumber { fallthrough }
+            Score.userScore.numberOfTry += 1
             randomNumber = Int.random(in: minNumber...maxNumber)
             userNumberIs.value = "Your number is - \(randomNumber)?"
         case ">":
             minNumber = randomNumber + 1
-            if minNumber >= maxNumber { fallthrough }
-            userScore.numberOfTry += 1
+            if minNumber > maxNumber { fallthrough }
+            Score.userScore.numberOfTry += 1
             randomNumber = Int.random(in: minNumber...maxNumber)
             userNumberIs.value = "Your number is - \(randomNumber)?"
         default:
@@ -48,6 +46,6 @@ class ComputerGuessingViewModel {
                 userNumberIs.value = "Hmm 🤔 It seems that you lied somewhere..."
             }
         }
-        tryNumber.value = "Try № \(userScore.numberOfTry)"
+        tryNumber.value = "Try № \(Score.userScore.numberOfTry)"
     }
 }

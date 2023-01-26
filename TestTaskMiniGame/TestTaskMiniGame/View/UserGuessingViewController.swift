@@ -22,6 +22,10 @@ class UserGuessingViewController: UIViewController {
     
     var tapGestureRecognizer = UIGestureRecognizer()
     
+    var userScore = 0
+    var computerScore = 0
+    var wonOrLoose = ""
+    
     //MARK: - viewDidLoad
 
     override func viewDidLoad() {
@@ -48,7 +52,8 @@ class UserGuessingViewController: UIViewController {
     //MARK: - Buttons Action and TapActions
     
     @objc func didTapView(_ sender: UITapGestureRecognizer) {
-        let ScoresVC = ScoresViewController()
+        print(userScore, computerScore, wonOrLoose)
+        let ScoresVC = ScoresViewController(userScore: userScore, computerScore: computerScore, winOrLoose: wonOrLoose)
         ScoresVC.modalPresentationStyle = .fullScreen
         present(ScoresVC, animated: true)
     }
@@ -56,6 +61,7 @@ class UserGuessingViewController: UIViewController {
     @objc func guessButtonTapped() {
         viewModel.userGuessButtonTapped(text: userAnswerTextField.text!)
         userAnswerTextField.text = ""
+        viewModel.resultsOfGame()
     }
 }
 
@@ -79,6 +85,14 @@ extension UserGuessingViewController {
         viewModel.tapRecognizerAccessibility.bind({ [weak self] accessibilityIs in
             DispatchQueue.main.async {
                 self?.tapGestureRecognizer.isEnabled = accessibilityIs
+            }
+        })
+        
+        viewModel.resultScore.bind({ [weak self] resultScore in
+            DispatchQueue.main.async {
+                self?.userScore = resultScore.0
+                self?.computerScore = resultScore.1
+                self?.wonOrLoose = resultScore.2
             }
         })
     }
