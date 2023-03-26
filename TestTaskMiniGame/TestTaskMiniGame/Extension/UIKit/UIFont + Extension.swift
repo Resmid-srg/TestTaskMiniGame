@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIFont {
-    
+
     static func avenir20() -> UIFont? {
         return UIFont.init(name: "avenir", size: 20)
     }

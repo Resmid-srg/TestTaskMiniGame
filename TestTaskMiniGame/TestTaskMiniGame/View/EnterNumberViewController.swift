@@ -8,52 +8,58 @@
 import UIKit
 
 class EnterNumberViewController: UIViewController {
-    
+
     private let viewModel = EnterNumberViewModel()
-    
+
     let validationInputText = UILabel(text: "Enter a number from 1 to 100")
-    let guessTheNumberTextField = UITextField(textPlaceholder: "Guess the Number", borderStyle: .roundedRect, textAlignment: .center)
-    
+    let guessTheNumberTextField = UITextField(textPlaceholder: "Guess the Number",
+                                              borderStyle: .roundedRect,
+                                              textAlignment: .center)
+
     let enterTheNumberButton = UIButton(title: "Enter the Number", isEnabled: false, alpha: 0.5)
-    
-    //MARK: - viewDidLoad
+
+    // MARK: - viewDidLoad
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //Delegates
+
+        // Delegates
         guessTheNumberTextField.delegate = self
-        
-        //Setups
+
+        // Setups
         view.backgroundColor = .systemBackground
         bindViewModel()
         setupConstraints()
-        
-        //Buttons and TextField targets
-        enterTheNumberButton.addTarget(self, action: #selector(enterTheNumberButtonTapped), for: .touchUpInside)
-        
-        guessTheNumberTextField.addTarget(self, action: #selector(guessTheNumberTextFieldDidChange), for: .editingChanged)
+
+        // Buttons and TextField targets
+        enterTheNumberButton.addTarget(self, action: #selector(enterTheNumberButtonTapped),
+                                       for: .touchUpInside)
+
+        guessTheNumberTextField.addTarget(self, action: #selector(guessTheNumberTextFieldDidChange),
+                                          for: .editingChanged)
     }
-    
-    //MARK: - ButtonsAction and TextFieldAction
-    
+
+    // MARK: - ButtonsAction and TextFieldAction
+
     @objc private func enterTheNumberButtonTapped() {
-        guard let strHuddenNumber = guessTheNumberTextField.text else { return print("enterTheNumberTapped --- User-entered text is nil")}
-        guard let hiddenNumber = Int(strHuddenNumber) else { return print("enterTheNumberTapped --- User-entered text is not converted Int") }
-        
+        guard let strHuddenNumber = guessTheNumberTextField.text else {
+            return print("enterTheNumberTapped --- User-entered text is nil")}
+        guard let hiddenNumber = Int(strHuddenNumber) else {
+            return print("enterTheNumberTapped --- User-entered text is not converted Int") }
+
         viewModel.userButtonTapped(number: hiddenNumber)
-        
+
         let compGuessingVC = ComputerGuessingViewController()
         compGuessingVC.modalPresentationStyle = .fullScreen
         present(compGuessingVC, animated: true)
     }
-    
+
     @objc private func guessTheNumberTextFieldDidChange(_ textField: UITextField) {
         viewModel.userDidChangedTextField(text: textField.text!)
     }
-    
-    //MARK: - Binding ViewModel
-    
+
+    // MARK: - Binding ViewModel
+
     func bindViewModel() {
         viewModel.validationInputText.bind({ [weak self] validationInputText in
             DispatchQueue.main.async {
@@ -61,13 +67,13 @@ class EnterNumberViewController: UIViewController {
                 self?.validationInputText.text = validationInputText
             }
         })
-        
+
         viewModel.colorValidationText.bind({ [weak self] colorValidationText in
             DispatchQueue.main.async {
                 self?.validationInputText.textColor = UIColor(named: colorValidationText)
             }
         })
-        
+
         viewModel.buttonAccessibility.bind({ [weak self] buttonAccessibility in
             DispatchQueue.main.async {
                 self?.enterTheNumberButton.isEnabled = buttonAccessibility
@@ -77,35 +83,35 @@ class EnterNumberViewController: UIViewController {
     }
 }
 
-//MARK: - Setup constraints
+// MARK: - Setup constraints
 
 extension EnterNumberViewController {
-    
+
     private func setupConstraints() {
-        
-        //tAMIC
+
+        // tAMIC
         guessTheNumberTextField.translatesAutoresizingMaskIntoConstraints = false
         validationInputText.translatesAutoresizingMaskIntoConstraints = false
         enterTheNumberButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        //addSubviews
+
+        // addSubviews
         view.addSubview(guessTheNumberTextField)
         view.addSubview(validationInputText)
         view.addSubview(enterTheNumberButton)
-        
-        //Constraints
+
+        // Constraints
         NSLayoutConstraint.activate([
             guessTheNumberTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 110),
             guessTheNumberTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             guessTheNumberTextField.widthAnchor.constraint(equalToConstant: 340),
             guessTheNumberTextField.heightAnchor.constraint(equalToConstant: 46)
         ])
-        
+
         NSLayoutConstraint.activate([
             validationInputText.topAnchor.constraint(equalTo: guessTheNumberTextField.bottomAnchor, constant: 16),
             validationInputText.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-        
+
         NSLayoutConstraint.activate([
             enterTheNumberButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
             enterTheNumberButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -115,35 +121,37 @@ extension EnterNumberViewController {
     }
 }
 
-//MARK: - UITextFieldDelegate
+// MARK: - UITextFieldDelegate
 
 extension EnterNumberViewController: UITextFieldDelegate {
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
         super.touchesBegan(touches, with: event)
     }
 }
 
-//MARK: - SwiftUI
+// MARK: - SwiftUI
 
 import SwiftUI
 
-struct EnterNumberVCProvider: PreviewProvider {
+struct EnterNumVCProv: PreviewProvider {
     static var previews: some View {
         ContainerView().edgesIgnoringSafeArea(.all)
     }
-    
+
     struct ContainerView: UIViewControllerRepresentable {
-        
+
         let viewController = EnterNumberViewController()
-        
-        func makeUIViewController(context: UIViewControllerRepresentableContext<EnterNumberVCProvider.ContainerView>) -> EnterNumberViewController {
+
+        func makeUIViewController(
+            context: UIViewControllerRepresentableContext<EnterNumVCProv.ContainerView>) -> EnterNumberViewController {
             return viewController
         }
-        
-        func updateUIViewController(_ uiViewController: EnterNumberVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<EnterNumberVCProvider.ContainerView>) {
-            
+
+        func updateUIViewController(_ uiViewController: EnterNumVCProv.ContainerView.UIViewControllerType,
+                                    context: UIViewControllerRepresentableContext<EnterNumVCProv.ContainerView>) {
+
         }
     }
 }

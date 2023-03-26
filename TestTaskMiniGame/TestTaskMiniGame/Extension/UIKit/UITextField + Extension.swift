@@ -8,12 +8,12 @@
 import UIKit
 
 extension UITextField {
-    
+
     convenience init(textPlaceholder: String? = "",
-                     borderStyle: UITextField.BorderStyle = .none ,
+                     borderStyle: UITextField.BorderStyle = .none,
                      textAlignment: NSTextAlignment = .left) {
         self.init()
-        
+
         self.placeholder = textPlaceholder
         self.borderStyle = borderStyle
         self.textAlignment = textAlignment

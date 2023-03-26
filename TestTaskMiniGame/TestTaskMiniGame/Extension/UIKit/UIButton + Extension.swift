@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIButton {
-    
+
     convenience init(title: String,
                      titleColor: UIColor? = .white,
                      backgroundColor: UIColor? = UIColor(named: "buttonColorNormal"),
@@ -17,9 +17,9 @@ extension UIButton {
                      isEnabled: Bool = true,
                      alpha: CGFloat = 1,
                      borderColor: CGColor = CGColor(gray: 0, alpha: 1),
-                     borderWidth: CGFloat = 1){
+                     borderWidth: CGFloat = 1) {
         self.init()
-        
+
         self.setTitle(title, for: .normal)
         self.setTitleColor(titleColor, for: .normal)
         self.backgroundColor = backgroundColor

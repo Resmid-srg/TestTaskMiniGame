@@ -8,21 +8,21 @@
 import Foundation
 
 class EnterNumberViewModel {
-    
+
     var validationInputText = Dynamic("")
     var colorValidationText = Dynamic("")
     var buttonAccessibility = Dynamic(false)
-    
-    //MARK: - Methods
-    
+
+    // MARK: - Methods
+
     func userButtonTapped(number: Int) {
         Score.userScore.hiddenNumber = number
     }
-    
+
     func userDidChangedTextField(text: String) {
-        
-        //TODO: - Вынести в отдельный валидатор и переработать компактнее
-        if text == ""  {
+
+        // TODO: - Вынести в отдельный валидатор и переработать компактнее
+        if text == "" {
             validationInputText.value = "Enter a number from 1 to 100"
             colorValidationText.value = "textColor"
             buttonAccessibility.value = false

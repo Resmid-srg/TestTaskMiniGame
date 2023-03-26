@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct Score {
     var numberOfTry: Int
     var hiddenNumber: Int

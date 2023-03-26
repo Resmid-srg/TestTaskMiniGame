@@ -8,25 +8,25 @@
 import Foundation
 
 class ComputerGuessingViewModel {
-        
+
     var userNumberIs = Dynamic("")
     var tryNumber = Dynamic("")
     var resultRound = Dynamic("")
     var buttonAccessibility = Dynamic(true)
-    
+
     var maxNumber = 100
     var minNumber = 0
     var randomNumber = Int.random(in: 1...100)
-    
-    //MARK: - Methods
-    
+
+    // MARK: - Methods
+
     func startGame() {
         userNumberIs.value = "Your number is - \(randomNumber)?"
         Score.userScore.numberOfTry = 1
     }
-    
+
     func userButtonTapped(result: String) {
-        
+
         switch result {
         case "<":
             maxNumber = randomNumber - 1
